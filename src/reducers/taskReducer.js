@@ -3,7 +3,6 @@ import {panelNames} from "../content"
 
 
 const taskReducer = (state = [], action) => {
-  //find out about double declaration
   switch (action.type) {
     case 'INIT_TASKS':
       return {
@@ -24,8 +23,6 @@ const taskReducer = (state = [], action) => {
         [destinationPanel]: [...state[destinationPanel], taskToMove],
         [unchangedPanel]: state[unchangedPanel]
       }
-    case "UNDO_TASK":
-      return state
     default:
       return state
   }
@@ -42,18 +39,10 @@ export const initializeTasks = () => {
 }
 
 export const moveTask = (index, from, to) => {
-  console.log(from, to);
   return {
     type: "MOVE_TASK",
     data: { index, from, to }
   }
 }
-
-// export const undoTask = (index, from, to) => {
-//   return {
-//     type: "UNDO_TASK",
-//     data: { index, from, to }
-//   }
-// }
 
 export default taskReducer
