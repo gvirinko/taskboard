@@ -5,7 +5,7 @@ import { Card } from '../Card'
 export const Panel = ({ name, data }) => {
   return (
     <div className="panel">
-      <h2 className="panel_title">{name}</h2>
+      <h2 className="panel_title">{name.toUpperCase()}</h2>
       <div className="panel_cards">
         {data.map(item =>
           <Card

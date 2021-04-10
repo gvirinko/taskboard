@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1 className="title">Task Board</h1>
+      <h1 className="title">TASK BOARD</h1>
       <button className="button_undo" onClick={()=> handleClick()}>Undo last action</button>
       <div className="panel_container">
         {panelNames.map((name, index) =>
