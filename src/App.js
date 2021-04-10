@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { initializeTasks } from './reducers/taskReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
-// import { Card } from './components/Card'
 import { Panel } from './components/Panel'
 import {panelNames} from './content'
 
@@ -15,14 +14,15 @@ const App = () => {
   }, [dispatch])
 
   const tasks = useSelector(state => state.tasks)
-  // console.log(tasks);
 
   if (Object.keys(tasks).length === 0) {
     return (<div>Loading...</div>)
   }
+
   return (
     <div className="container">
       <h1 className="title">Task Board</h1>
+      <button className="button_undo">Undo last action</button>
       <div className="panel_container">
         {panelNames.map((name, index) =>
           <Panel name={name} data={tasks[name]} key={index} />)}

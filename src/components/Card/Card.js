@@ -1,26 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import {
   moveFromBacklogToUnresolved,
   moveFromUnresolvedToResolved,
   moveFromResolvedToUnresolved
 } from "../../reducers/taskReducer"
+import { rememberAction } from "../../reducers/actionReducer"
 
 import '../../App.css';
 
-export const Card = ({ code, text, index, direction }) => {
+export const Card = ({ code, text, index, initialPosition }) => {
+  const [buttonName, setButtonName] = useState("")
+  // document.querySelector("")
+
+  useEffect(() => {
+    if (initialPosition === "backlog" || "resolved") {
+      setButtonName("Move to unresolved")
+    }
+    if (initialPosition === "unresolved") {
+      setButtonName("Move to resolved")
+    }
+  }, [initialPosition])
+
   const dispatch = useDispatch()
-  const handleClick = (direction) => {
-    console.log(direction);
-    switch (direction) {
-      case "unresolved >":
+
+  const handleClick = () => {
+    switch (initialPosition) {
+      case "backlog":
         dispatch(moveFromBacklogToUnresolved(index))
+        // dispatch(rememberAction(initialPosition))
         break
-      case "resolved >":
+      case "unresolved":
         dispatch(moveFromUnresolvedToResolved(index))
         break
-      case "unresolved <":
-        console.log(code);
+      case "resolved":
         dispatch(moveFromResolvedToUnresolved(index))
         break
       default:
@@ -35,7 +48,7 @@ export const Card = ({ code, text, index, direction }) => {
       </div>
       <button
         className="button_move"
-        onClick={() => handleClick(direction)}>Move to {direction}</button>
+        onClick={() => handleClick()}> { buttonName }</button>
   </div>)
 };
 

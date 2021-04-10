@@ -54,7 +54,12 @@
   padding: 5px;
   border: 0.5px solid green;
   border-radius: 5px;
+  box-shadow: 1px 2px 20px darken(#ffffff, 30);
   background-color: #97B1AA;
+}
+
+.card_removed {
+  animation: fadeOut 500ms;
 }
 
 .card:first-of-type {
@@ -87,5 +92,22 @@
 }
 
 .button_move:hover {
-  background-color: #EDFDF9
+  background-color: #EDFDF9;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.button_undo {
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5px;
+  border-radius: 5px;
+  background-color: #2BA894;
+}
+
+.button_undo:hover {
+  background-color: #EDFDF9;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }

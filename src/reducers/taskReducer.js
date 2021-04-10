@@ -31,7 +31,6 @@ const taskReducer = (state = [], action) => {
     case "MOVE_RESOLVED_UNRESOLVED":
       let index_r = action.data
       let taskToMove_r = state.resolved.find(task => task.index === index_r)
-      console.log(taskToMove_r);
       const filteredResolved = state.resolved.filter(item => item.index !== index_r)
       return {
         "backlog": state.backlog,
@@ -61,7 +60,6 @@ export const moveFromBacklogToUnresolved = (index) => {
 }
 
 export const moveFromUnresolvedToResolved = (index) => {
-  console.log(index);
   return {
     type: "MOVE_UNRESOLVED_RESOLVED",
     data: index
