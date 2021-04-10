@@ -1,40 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux'
-import {
-  moveFromBacklogToUnresolved,
-  moveFromUnresolvedToResolved,
-  moveFromResolvedToUnresolved
-} from "../../reducers/taskReducer"
+import { moveTask } from "../../reducers/taskReducer"
 import { rememberAction } from "../../reducers/actionReducer"
 
 import '../../App.css';
 
-export const Card = ({ code, text, index, initialPosition }) => {
+export const Card = ({ code, text, index, sourcePanel }) => {
   const [buttonName, setButtonName] = useState("")
   // document.querySelector("")
 
   useEffect(() => {
-    if (initialPosition === "backlog" || "resolved") {
+    if (sourcePanel === "backlog" || "resolved") {
       setButtonName("Move to unresolved")
     }
-    if (initialPosition === "unresolved") {
+    if (sourcePanel === "unresolved") {
       setButtonName("Move to resolved")
     }
-  }, [initialPosition])
+  }, [sourcePanel])
 
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    switch (initialPosition) {
+    let destinationPanel
+    switch (sourcePanel) {
       case "backlog":
-        dispatch(moveFromBacklogToUnresolved(index))
-        // dispatch(rememberAction(initialPosition))
+        destinationPanel = "unresolved"
+        dispatch(moveTask(index, sourcePanel, destinationPanel))
+        dispatch(rememberAction(index, sourcePanel, destinationPanel))
         break
       case "unresolved":
-        dispatch(moveFromUnresolvedToResolved(index))
+        destinationPanel = "resolved"
+        dispatch(moveTask(index, sourcePanel, destinationPanel))
+        dispatch(rememberAction(index, sourcePanel, destinationPanel))
         break
       case "resolved":
-        dispatch(moveFromResolvedToUnresolved(index))
+        destinationPanel = "unresolved"
+        dispatch(moveTask(index, sourcePanel, destinationPanel))
+        dispatch(rememberAction(index, sourcePanel, destinationPanel))
         break
       default:
         break

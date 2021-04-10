@@ -13,7 +13,7 @@ export const Panel = ({ name, data }) => {
             text={item.text}
             index={item.index}
             key={item.index}
-            initialPosition={name}></Card>)
+            sourcePanel={name}></Card>)
         }
       </div>
     </div>)
