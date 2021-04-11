@@ -3,18 +3,22 @@ import { initializeTasks, moveTask } from './reducers/taskReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Panel } from './components/Panel'
-import {panelNames} from './content'
+import { panelNames } from './content'
 
+// import 'swiper/swiper-bundle.css';
 import './App.css'
 import './responsive.css'
+import { PanelsMobile } from './components/PanelsMobile'
 
 const App = () => {
   const [disabled, setDisabled] = useState(true)
+  const [displayWidth, setDisplayWidth] = useState(window.innerWidth)
   const action = useSelector(state => state.action.lastAction)
 
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(initializeTasks())
+    window.addEventListener('resize', () => setDisplayWidth(window.innerWidth))
 
   }, [dispatch])
   useEffect(() => {
@@ -33,6 +37,7 @@ const App = () => {
     setDisabled(true)
   }
 
+
   return (
     <div className="app-container">
       <h1 className="title">BOARD OF ERRORS</h1>
@@ -42,10 +47,14 @@ const App = () => {
           onClick={() => handleClick()}
           disabled={disabled}
         >Undo last action</button>
-        <div className="panel_container">
-          {panelNames.map((name, index) =>
-            <Panel name={name} data={tasks[name]} key={index} />)}
-        </div>
+        {displayWidth < 700
+          ? <PanelsMobile />
+          : null
+          // : <div className="panel_container">
+          //   {panelNames.map((name, index) =>
+          //     <Panel name={name} data={tasks[name]} key={index} />)}
+          // </div>
+        }
       </div>
     </div>
   );
