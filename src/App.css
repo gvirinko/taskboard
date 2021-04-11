@@ -5,8 +5,8 @@
 
 .container {
   position: relative;
-  /* margin: 0;
-  padding: 0; */
+  display: flex;
+  flex-direction: column;
   background-color: #ECEFF4;
   font-family: Roboto, Georgia, serif;
   color: #3B4252
@@ -15,47 +15,88 @@
 .title {
   text-align: center;
   padding: 20px;
+  margin: 0;
+  margin-top: 40px;
   font-size: 4vw;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.button_undo {
+  height: 5vw;
+  width: 10vw;
+  align-self: flex-end;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #4C566A;
+  color: #cbe2e9;
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+.button_undo:hover {
+  background-color: #434C5E;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.button_undo:disabled {
+  background-color: #b3b7be;
+  transition: none;
+  cursor: not-allowed;
 }
 
 .panel_container {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: #ECEFF4;
 }
 
 .panel {
   position: relative;
-  margin-left: 20px;
+  align-content: center;
   margin-bottom: 20px;
-  max-height: calc(100vh - 120px);
   border-radius: 4px;
-  overflow-y: scroll;
   box-shadow: 1px 2px 5px;
   background-color: #D8DEE9;
 }
 
-.panel:last-child {
-  margin-right: 20px;
+.panel_title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 16vw;
 }
 
-.panel_title {
+.panel_title_text {
   text-align: center;
   font-size: 2vw;
-  /* position: absolute; */
+  line-height: 1;
 }
 
-/* .panel_cards {
-  position: relative;
+.panel_cards {
+  margin-top: 70px;
+  margin-bottom: 20px;
   overflow-y: scroll;
-} */
+  max-height: calc(100vh - 320px);
+}
 
 .card {
   position: relative;
   display: flex;
-  margin: 10px;
   padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 29vw;
   border: 0.5px solid #3B4252;
   border-radius: 5px;
   box-shadow: 1px 2px 5px;
@@ -68,9 +109,9 @@
   background-color: #d7e1f3;
 }
 
-.card_removed {
+/* .card_removed {
   animation: fadeOut 500ms;
-}
+} */
 
 .card:first-of-type {
   /* margin-top: 100px; */
@@ -94,9 +135,12 @@
 
 .button_move {
   height: 50px;
+  max-width: 90px;
+  min-width: 60px;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 5px;
+  margin-right: 5px;
   border-radius: 5px;
   background-color: #88C0D0;
   font-size: 1.2vw;
@@ -108,24 +152,8 @@
   cursor: pointer;
 }
 
-.button_undo {
-  height: 50px;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 5px;
-  border-radius: 5px;
-  background-color: #EBCB8B;
-  font-size: 1.2vw;
-}
-
-.button_undo:hover {
-  background-color: #EDFDF9;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-}
-
 @font-face {
   src: url(./fonts/roboto-regular-webfont.woff) format('woff');
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
 }
