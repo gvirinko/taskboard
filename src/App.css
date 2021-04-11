@@ -1,15 +1,18 @@
-/* * {
+* {
   box-sizing: border-box;
   border: 0.5px solid red;
-} */
+}
 
-.container {
+.app-container {
   position: relative;
   display: flex;
   flex-direction: column;
+  align-content: center;
   background-color: #ECEFF4;
   font-family: Roboto, Georgia, serif;
-  color: #3B4252
+  color: #3B4252;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 .title {
@@ -24,8 +27,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  /* max-width: 2000px; */
   margin-left: 20px;
   margin-right: 20px;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
 .button_undo {
@@ -78,13 +84,14 @@
 }
 
 .panel_title_text {
+  height: 100%;
   text-align: center;
   font-size: 2vw;
-  line-height: 1;
+  /* line-height: 1; */
 }
 
 .panel_cards {
-  margin-top: 70px;
+  margin-top: 8vh;
   margin-bottom: 20px;
   overflow-y: scroll;
   max-height: calc(100vh - 320px);
@@ -96,7 +103,7 @@
   padding: 5px;
   margin-left: 10px;
   margin-right: 10px;
-  width: 29vw;
+  /* width: 29vw; */
   border: 0.5px solid #3B4252;
   border-radius: 5px;
   box-shadow: 1px 2px 5px;
@@ -109,18 +116,11 @@
   background-color: #d7e1f3;
 }
 
-/* .card_removed {
-  animation: fadeOut 500ms;
-} */
-
-.card:first-of-type {
-  /* margin-top: 100px; */
-}
-
 .card_description {
   position: relative;
   display: flex;
   flex-direction: column;
+  width: 14vw;
 }
 
 .card_errorname {
@@ -134,13 +134,12 @@
 }
 
 .button_move {
-  height: 50px;
-  max-width: 90px;
-  min-width: 60px;
+  height: 5vw;
+  max-width: 10vw;
+  min-width: 70px;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 5px;
-  margin-right: 5px;
   border-radius: 5px;
   background-color: #88C0D0;
   font-size: 1.2vw;

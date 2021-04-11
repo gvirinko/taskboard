@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Panel } from './components/Panel'
 import {panelNames} from './content'
 
-import './App.css';
+import './App.css'
+import './responsive.css'
 
 const App = () => {
   const [disabled, setDisabled] = useState(true)
@@ -33,7 +34,7 @@ const App = () => {
   }
 
   return (
-    <div className="container">
+    <div className="app-container">
       <h1 className="title">BOARD OF ERRORS</h1>
       <div className="wrapper">
         <button
@@ -46,7 +47,6 @@ const App = () => {
             <Panel name={name} data={tasks[name]} key={index} />)}
         </div>
       </div>
-
     </div>
   );
 }
