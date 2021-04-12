@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-import {Panel} from '../Panel'
-import {panelNames} from '../../content'
+import { Panel } from '../Panel'
+import { panelNames } from '../../content'
 
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css';
+import Swiper from 'swiper'
+import 'swiper/swiper-bundle.css'
 
-import SwiperCore, { Navigation, Pagination } from 'swiper/core';
-SwiperCore.use([Navigation, Pagination]);
-
+import SwiperCore, { Navigation, Pagination } from 'swiper/core'
+SwiperCore.use([Navigation, Pagination])
 
 export const PanelsMobile = () => {
   useEffect(() => {
@@ -20,7 +19,7 @@ export const PanelsMobile = () => {
         type: 'bullets',
         clickable: true,
       },
-    });
+    })
 
   }, [])
   const tasks = useSelector(state => state.tasks)
@@ -36,11 +35,11 @@ export const PanelsMobile = () => {
             <div className="swiper-slide" key={index}>
               <Panel name={name} data={tasks[name]} />
             </div>
-            )}
+          )}
         </div>
         <div className="swiper-pagination"></div>
       </div>
     </div>
   )
-};
+}
 

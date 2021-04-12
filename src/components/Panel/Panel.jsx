@@ -1,5 +1,5 @@
-import React from "react";
-import '../../App.css';
+import React from 'react'
+import '../../App.css'
 import { Card } from '../Card'
 
 export const Panel = ({ name, data }) => {
@@ -19,5 +19,5 @@ export const Panel = ({ name, data }) => {
         }
       </div>
     </div>)
-};
+}
 

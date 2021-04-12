@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 import { useDispatch } from 'react-redux'
-import { moveTask } from "../../reducers/taskReducer"
-import { rememberAction } from "../../reducers/actionReducer"
-import { destinations } from "../../content"
+import { moveTask } from '../../reducers/taskReducer'
+import { rememberAction } from '../../reducers/actionReducer'
+import { destinations } from '../../content'
 
-import '../../App.css';
+import '../../App.css'
 
 export const Card = ({ code, text, index, sourcePanel }) => {
   const destinationPanel = destinations[sourcePanel]
@@ -26,6 +26,6 @@ export const Card = ({ code, text, index, sourcePanel }) => {
       <button
         className="button_move"
         onClick={() => handleClick()}>Move to {destinationPanel} </button>
-  </div>)
-};
+    </div>)
+}
 

@@ -1,1 +1,1 @@
-export { PanelsMobile } from "./PanelsMobile";
+export { PanelsMobile } from './PanelsMobile'

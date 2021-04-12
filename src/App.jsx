@@ -21,12 +21,12 @@ const App = () => {
 
   }, [dispatch])
   useEffect(() => {
-    action ? setDisabled(false) : setDisabled(true);
+    action ? setDisabled(false) : setDisabled(true)
   }, [action])
 
   const tasks = useSelector(state => state.tasks)
   if (Object.keys(tasks).length === 0) {
-    return (<div>Loading...</div>)
+    return (<div> Loading...</div>)
   }
 
   const handleClick = () => {
@@ -40,7 +40,7 @@ const App = () => {
   return (
     <div className="app-container">
       <h1 className="title">BOARD OF ERRORS</h1>
-      <div className="content-wrapper">
+      <main className="content-wrapper">
         <button
           className="button_undo"
           onClick={() => handleClick()}
@@ -53,9 +53,9 @@ const App = () => {
               <Panel name={name} data={tasks[name]} key={index} />)}
           </div>
         }
-      </div>
+      </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
