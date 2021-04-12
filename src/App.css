@@ -3,28 +3,33 @@
   border: 0.5px solid red;
 } */
 
+body {
+  background-color: #ECEFF4;
+  margin: 0;
+  padding: 0;
+}
+
 .app-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-content: center;
-  /* bottom: 0; */
+  margin: 0;
   background-color: #ECEFF4;
   font-family: Roboto, Georgia, serif;
   color: #3B4252;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
 }
 
 .title {
   text-align: center;
   padding: 20px;
-  margin: 0;        /*????*/
+  margin: 0;
+  /*????*/
   margin-top: 40px;
   font-size: 4vw;
 }
 
-.wrapper {
+.content-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -85,14 +90,13 @@
   height: 100%;
   text-align: center;
   font-size: 2vw;
-  /* line-height: 1; */
 }
 
 .panel_cards {
   margin-top: 8vh;
   margin-bottom: 20px;
   overflow-y: scroll;
-  max-height: calc(100vh - 320px);
+  max-height: calc(100vh - 300px);
 }
 
 .card {
@@ -144,7 +148,7 @@
 
 .button_move:hover {
   background-color: #57b8d3;
-  /* transition: 0.3s ease-in-out; */
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 

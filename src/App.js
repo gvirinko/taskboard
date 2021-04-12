@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Panel } from './components/Panel'
 import { panelNames } from './content'
 
-// import 'swiper/swiper-bundle.css';
 import './App.css'
 import './responsive.css'
 import { PanelsMobile } from './components/PanelsMobile'
@@ -41,19 +40,18 @@ const App = () => {
   return (
     <div className="app-container">
       <h1 className="title">BOARD OF ERRORS</h1>
-      <div className="wrapper">
+      <div className="content-wrapper">
         <button
           className="button_undo"
           onClick={() => handleClick()}
           disabled={disabled}
         >Undo last action</button>
-        {displayWidth < 700
+        {displayWidth < 600
           ? <PanelsMobile />
-          : null
-          // : <div className="panel_container">
-          //   {panelNames.map((name, index) =>
-          //     <Panel name={name} data={tasks[name]} key={index} />)}
-          // </div>
+          : <div className="panel_container">
+            {panelNames.map((name, index) =>
+              <Panel name={name} data={tasks[name]} key={index} />)}
+          </div>
         }
       </div>
     </div>
