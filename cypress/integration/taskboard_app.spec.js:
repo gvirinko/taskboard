@@ -1,0 +1,70 @@
+describe('Taskboard app', function() {
+    beforeEach(function() {
+    cy.visit('http://localhost:3000');
+    cy.waitForReact();
+  })
+  it('front page can be opened', function() {
+    cy.contains('BOARD FOR ERRORS')
+    cy.contains('Undo last action')
+    cy.contains('Move to unresolved')
+    cy.contains('Move to resolved')
+  });
+
+  it('cannot click on Undo button on start', function() {
+    cy.contains('Undo last action').should('be.disabled')
+  })
+
+  it('can click on Undo button only if there is anything to undo, and only once', function() {
+    cy.contains('Undo last action').should('be.disabled')
+    cy.contains('Move to unresolved').click()
+    cy.contains('Undo last action').click()
+    cy.contains('Undo last action').should('be.disabled')
+  })
+
+  it('can move card from backlog to unresolved', function() {
+    cy.contains('BACKLOG').parent().parent().children().next().children().should('have.length', 50)
+    cy.contains('UNRESOLVED').parent().parent().children().next().children().should('have.length', 50)
+
+    cy.contains('Error XYZ occured, that is in the `backlog`')
+    .parent().parent().contains('Move to unresolved').click()
+
+    cy.contains('BACKLOG').parent().parent().children().next().children().should('have.length', 49)
+    cy.contains('UNRESOLVED').parent().parent().children().next().children().should('have.length', 51)
+  })
+
+  it('can move card from unresolved to resolved', function() {
+    cy.contains('UNRESOLVED').parent().parent().children().next().children().should('have.length', 50)
+    cy.contains('UNRESOLVED').parent().parent().next().children().next().children().should('have.length', 50)
+
+    cy.contains('Error DEF occured, that is `unresolved`')
+    .parent().parent().contains('Move to resolved').click()
+
+    cy.contains('UNRESOLVED').parent().parent().children().next().children().should('have.length', 49)
+    cy.contains('UNRESOLVED').parent().parent().next().children().next().children().should('have.length', 51)
+  })
+
+  it('can move card from resolved to unresolved', function() {
+    cy.contains('UNRESOLVED').parent().parent().children().next().children().should('have.length', 50)
+    cy.contains('UNRESOLVED').parent().parent().next().children().next().children().should('have.length', 50)
+
+    cy.contains('Error ABC occured, that is `resolved`')
+    .parent().parent().contains('Move to unresolved').click()
+
+    cy.contains('UNRESOLVED').parent().parent().next().children().next().children().should('have.length', 49)
+    cy.contains('UNRESOLVED').parent().parent().children().next().children().should('have.length', 51)
+  })
+
+  it('can undo the last action', function() {
+    cy.contains('Undo last action').should('be.disabled')
+    cy.contains('Move to unresolved').click()
+    cy.contains('Undo last action').click()
+    cy.contains('Undo last action').should('be.disabled')
+
+    cy.contains('BACKLOG').parent().parent().children().next().children().should('have.length', 50)
+    cy.contains('Error XYZ occured, that is in the `backlog`')
+    .parent().parent().contains('Move to unresolved').click()
+    cy.contains('BACKLOG').parent().parent().children().next().children().should('have.length', 49)
+    cy.contains('Undo last action').click()
+    cy.contains('BACKLOG').parent().parent().children().next().children().should('have.length', 50)
+  })
+})

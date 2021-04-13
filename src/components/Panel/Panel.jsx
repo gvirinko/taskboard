@@ -10,7 +10,7 @@ export const Panel = ({ name, data }) => {
       </PanelTitle>
       <PanelCards>
         {data.map(item =>
-          <Card
+          <Card className='card_test'
             code={item.code}
             text={item.text}
             index={item.index}
