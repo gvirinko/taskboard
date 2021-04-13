@@ -1,23 +1,24 @@
 import React from 'react'
-import '../../App.css'
 import { Card } from '../Card'
+import { PanelComponent, PanelTitle, PanelTitleText, PanelCards } from './elements'
 
 export const Panel = ({ name, data }) => {
   return (
-    <div className="panel">
-      <div className="panel_title">
-        <h2 className="panel_title_text">{name.toUpperCase()}</h2>
-      </div>
-      <div className="panel_cards">
+    <PanelComponent>
+      <PanelTitle>
+        <PanelTitleText>{name.toUpperCase()}</PanelTitleText>
+      </PanelTitle>
+      <PanelCards>
         {data.map(item =>
           <Card
             code={item.code}
             text={item.text}
             index={item.index}
             key={item.index}
-            sourcePanel={name}></Card>)
+            sourcePanel={name}>
+          </Card>)
         }
-      </div>
-    </div>)
+      </PanelCards>
+    </PanelComponent>)
 }
 

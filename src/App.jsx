@@ -3,11 +3,11 @@ import { initializeTasks, moveTask } from './reducers/taskReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Panel } from './components/Panel'
-import { panelNames } from './content'
+import { panelNames, appTitle } from './content'
 
-import './App.css'
-import './responsive.css'
+import { AppContainer, AppTitle, ContentContainer, PanelContainer } from './components/containers/elements'
 import { PanelsMobile } from './components/PanelsMobile'
+import { ButtonUndo } from './components/Buttons/elements'
 
 const App = () => {
   const [disabled, setDisabled] = useState(true)
@@ -38,23 +38,23 @@ const App = () => {
 
 
   return (
-    <div className="app-container">
-      <h1 className="title">BOARD OF ERRORS</h1>
-      <main className="content-wrapper">
-        <button
-          className="button_undo"
+    <AppContainer>
+      <AppTitle>{appTitle}</AppTitle>
+      <ContentContainer>
+        <ButtonUndo
           onClick={() => handleClick()}
           disabled={disabled}
-        >Undo last action</button>
+        >Undo last action
+        </ButtonUndo>
         {displayWidth < 600
           ? <PanelsMobile />
-          : <div className="panel_container">
+          : <PanelContainer>
             {panelNames.map((name, index) =>
               <Panel name={name} data={tasks[name]} key={index} />)}
-          </div>
+          </PanelContainer>
         }
-      </main>
-    </div>
+      </ContentContainer>
+    </AppContainer>
   )
 }
 
