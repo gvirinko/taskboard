@@ -30,7 +30,7 @@ export const CardDescription = styled.div`
   height: 5vh;
   @media (min-width: 320px) and (max-width: 600px) {
     width: 80%;
-    height: 7vh;
+    height: 6vh;
   }
 `
 

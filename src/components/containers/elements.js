@@ -23,7 +23,7 @@ export const AppTitle = styled.h1`
     text-align: center;
     padding: 15px;
     margin-top: 5px;
-    font-size: 5vw;
+    font-size: 8vw;
   }
   @media (min-width: 1280px) {
     font-size: 60px;
@@ -47,6 +47,7 @@ export const ContentContainer = styled.main`
 export const PanelContainer = styled.div`
   position: relative;
   display: flex;
+  overflow-x: scroll;
   justify-content: space-between;
   background-color: ${background};
 `

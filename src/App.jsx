@@ -12,12 +12,15 @@ import { ButtonUndo } from './components/Buttons/elements'
 const App = () => {
   const [disabled, setDisabled] = useState(true)
   const [displayWidth, setDisplayWidth] = useState(window.innerWidth)
+  const breakpointForMobileView = 600
   const action = useSelector(state => state.action.lastAction)
 
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(initializeTasks())
     window.addEventListener('resize', () => setDisplayWidth(window.innerWidth))
+  }, [window.innerWidth])
+  useEffect(() => {
+    dispatch(initializeTasks())
   }, [dispatch])
   useEffect(() => {
     action ? setDisabled(false) : setDisabled(true)
@@ -45,7 +48,7 @@ const App = () => {
           disabled={disabled}
         >Undo last action
         </ButtonUndo>
-        {displayWidth < 600
+        {displayWidth < breakpointForMobileView
           ? <PanelsMobile />
           : <PanelContainer>
             {panelNames.map((name, index) =>

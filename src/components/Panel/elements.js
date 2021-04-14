@@ -32,8 +32,9 @@ export const PanelTitle = styled.div`
   margin-right: auto;
   width: 16vw;
   @media (min-width: 320px) and (max-width: 600px) {
-    width: 300px;
+    // width: 300px;
     // height: 60px;
+      width: 100%;
     margin-top: 5;
   }
 `
