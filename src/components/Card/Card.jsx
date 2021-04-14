@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
 import { moveTask } from '../../reducers/taskReducer'
 import { rememberAction } from '../../reducers/actionReducer'
 import { destinations } from '../../content'
@@ -28,3 +29,9 @@ export const Card = ({ code, text, index, sourcePanel }) => {
     </CardComponent>)
 }
 
+Card.propTypes = {
+  code: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  sourcePanel: PropTypes.string.isRequired
+}

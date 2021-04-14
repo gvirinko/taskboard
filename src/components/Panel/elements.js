@@ -70,6 +70,7 @@ export const PanelCards = styled.div`
   }
 
   @media (min-width: 320px) and (max-width: 600px) {
+    max-height: 60vh;
     margin-top: 50px;
     padding-top: 0px;
   }

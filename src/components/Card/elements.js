@@ -27,8 +27,10 @@ export const CardDescription = styled.div`
   display: flex;
   flex-direction: column;
   width: 14vw;
+  height: 5vh;
   @media (min-width: 320px) and (max-width: 600px) {
     width: 80%;
+    height: 7vh;
   }
 `
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Card } from '../Card'
 import { PanelComponent, PanelTitle, PanelTitleText, PanelCards } from './elements'
 
@@ -22,3 +23,7 @@ export const Panel = ({ name, data }) => {
     </PanelComponent>)
 }
 
+Panel.propTypes = {
+  name: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired
+}
