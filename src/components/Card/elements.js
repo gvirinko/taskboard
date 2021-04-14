@@ -4,6 +4,7 @@ import { card, card_border, card_hover } from '../../colors'
 export const CardComponent = styled.div`
   position: relative;
   display: flex;
+  justify-content: space-between;
   padding: 5px;
   margin-left: 10px;
   margin-right: 10px;
@@ -12,7 +13,7 @@ export const CardComponent = styled.div`
   box-shadow: 1px 2px 5px;
   background-color: ${card};
   font-size: 1.2vw;
-  line-height: 1.3;
+  line-height: 1.2;
   &:hover {
     background-color: ${card_hover};
   }

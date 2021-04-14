@@ -3,6 +3,7 @@ import { panel } from '../../colors'
 
 export const PanelComponent = styled.div`
   position: relative;
+  min-width: 30vw;
   align-content: center;
   margin-bottom: 20px;
   border-radius: 3px;
@@ -15,6 +16,7 @@ export const PanelComponent = styled.div`
     height: 600px;
   }
   @media (min-width: 1280px) {
+    min-width: 25vw;
     margin-right: 20px;
     &:last-of-type {
       margin-right: 0;
@@ -55,15 +57,36 @@ export const PanelCards = styled.div`
   margin-top: 8vh;
   margin-bottom: 20px;
   overflow-y: scroll;
-  max-height: calc(100vh - 300px);
+  max-height: 55vh;
   border-radius: 3px;
+  &:after {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: linear-gradient(180deg, rgba(255,255,255,0) 92%, rgba(216,222,233,0.9682247899159664) 100%);
+    pointer-events: none;
+  }
+
   @media (min-width: 320px) and (max-width: 600px) {
     margin-top: 50px;
     padding-top: 0px;
-    max-height: calc(100vh - 250px);
   }
-  @media (min-width: 1280px) {
-    max-height: calc(100vh - 400px);
+  @media (min-width: 600px) and (max-width: 800px) {
+    max-height: 55vh;
+  }
+  @media (min-width: 800px) and (max-width: 1000px) {
+    max-height: 53vh;
+  }
+  @media (min-width: 1000px) and (max-width: 1280px) {
+    max-height: 57vh;
+  }
+  @media (min-width: 1280px) and (max-width: 1400px) {
+    max-height: 60vh;
     margin-top: 100px;
+  }
+  @media (min-width: 1400px) {
+    max-height: 65vh;
   }
 `

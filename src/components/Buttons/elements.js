@@ -33,7 +33,7 @@ export const ButtonUndo = styled.button`
   @media (min-width: 1280px) {
     height: 50px;
     width: 120px;
-    font-size: 20px;
+    font-size: 18px;
   }
 `
 
@@ -58,5 +58,10 @@ export const ButtonMove = styled.button`
     max-width: none;
     min-width: 20px;
     font-size: 10px;
+  }
+    @media (min-width: 1280px) {
+    height: 90px;
+    width: 200px;
+    font-size: 20px;
   }
 `

@@ -36,7 +36,6 @@ const App = () => {
     setDisabled(true)
   }
 
-
   return (
     <AppContainer>
       <AppTitle>{appTitle}</AppTitle>
