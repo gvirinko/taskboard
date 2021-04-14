@@ -18,9 +18,3 @@ body {
     position: relative;
   }
 }
-
-@font-face {
-  src: url(./fonts/roboto-regular-webfont.woff) format('woff');
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-}

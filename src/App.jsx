@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { initializeTasks, moveTask } from './reducers/taskReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
+import GlobalFonts from './fonts/fonts'
 import { Panel } from './components/Panel'
 import { panelNames, appTitle } from './content'
-
 import { AppContainer, AppTitle, ContentContainer, PanelContainer } from './components/containers/elements'
 import { PanelsMobile } from './components/PanelsMobile'
 import { ButtonUndo } from './components/Buttons/elements'
@@ -38,6 +38,7 @@ const App = () => {
 
   return (
     <AppContainer>
+      <GlobalFonts />
       <AppTitle>{appTitle}</AppTitle>
       <ContentContainer>
         <ButtonUndo
