@@ -5,6 +5,8 @@ export const AppContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  // height: 60vh;
+  // max-height: 60vh;
   align-content: center;
   margin: 0;
   background-color: ${background};
@@ -32,6 +34,7 @@ export const ContentContainer = styled.main`
   position: relative;
   display: flex;
   flex-direction: column;
+  // height: 60vh;
   margin-left: 20px;
   margin-right: 20px;
   @media (min-width: 1280px) {

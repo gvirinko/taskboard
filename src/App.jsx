@@ -18,7 +18,6 @@ const App = () => {
   useEffect(() => {
     dispatch(initializeTasks())
     window.addEventListener('resize', () => setDisplayWidth(window.innerWidth))
-
   }, [dispatch])
   useEffect(() => {
     action ? setDisabled(false) : setDisabled(true)
