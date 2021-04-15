@@ -12,6 +12,9 @@ export const Card = ({ code, text, index, sourcePanel }) => {
   const destinationPanel = destinations[sourcePanel]
   const dispatch = useDispatch()
 
+  // handling 'Move to...' button click by sending data to both reducers:
+  // - task index, source panel and destination panel => to tasks reducer
+  // - action performed => to action reducer
   const handleClick = () => {
     dispatch(moveTask(index, sourcePanel, destinationPanel))
     dispatch(rememberAction(index, sourcePanel, destinationPanel))

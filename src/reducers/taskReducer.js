@@ -2,22 +2,23 @@
 import getAll from '../services/tasks'
 import { panelNames } from '../content'
 
-
 const taskReducer = (state = [], action) => {
   switch (action.type) {
+  // functionality to save an initial list of tasks from API
   case 'INIT_TASKS':
     return {
       'backlog': action.data.backlog,
       'unresolved': action.data.unresolved,
       'resolved': action.data.resolved
     }
+  // functionality to move any task to any panel, given its index, source panel and destination panel
   case 'MOVE_TASK':
     const sourcePanel = action.data.from
     const destinationPanel = action.data.to
     const sourceArray = state[action.data.from]
     const taskToMove = sourceArray.find(task => task.index === action.data.index)
     const filteredArray = sourceArray.filter(task => task.index !== action.data.index)
-    //check the situation with multiple unchanged panels
+    //? check the situation with multiple unchanged panels
     const unchangedPanel = panelNames.filter(panel => panel !== sourcePanel && panel !== destinationPanel)
     return {
       [sourcePanel]: filteredArray,
@@ -29,6 +30,7 @@ const taskReducer = (state = [], action) => {
   }
 }
 
+// getting data from API asyncronously and adding to state
 export const initializeTasks = () => {
   return async dispatch => {
     try {

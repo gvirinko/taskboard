@@ -1,3 +1,4 @@
+export const appTitle = 'BOARD FOR ERRORS'
 
 export const panelNames = ['backlog', 'unresolved', 'resolved']
 
@@ -6,5 +7,3 @@ export const destinations = {
   'unresolved': 'resolved',
   'resolved': 'unresolved'
 }
-
-export const appTitle = 'BOARD FOR ERRORS'

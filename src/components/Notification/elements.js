@@ -9,6 +9,6 @@ export const NotificationComponent = styled.div`
   text-align: center;
   min-height: 100vh;
   background-color: ${background};
-  font-color: ${font};
+  color: ${font};
   font-size: 2vh;
 `

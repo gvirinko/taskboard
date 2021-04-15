@@ -14,21 +14,27 @@ const App = () => {
   const [disabled, setDisabled] = useState(true)
   const [notification, setNotification] = useState('Loading...')
   const [displayWidth, setDisplayWidth] = useState(window.innerWidth)
+  // breakpoint at which slider component for mobile view should be rendered
   const breakpointForMobileView = 600
   const action = useSelector(state => state.action.lastAction)
-
   const dispatch = useDispatch()
+
+  // defining user display width to adjust render styles
   useEffect(() => {
     window.addEventListener('resize', () => setDisplayWidth(window.innerWidth))
   }, [window.innerWidth])
+  // saving data to state
   useEffect(() => {
     dispatch(initializeTasks())
   }, [dispatch])
+  // checking if there is an action saved to state, to define the status of Undo button
   useEffect(() => {
     action ? setDisabled(false) : setDisabled(true)
   }, [action])
 
+  // getting data on errors from state
   const tasks = useSelector(state => state.tasks)
+  // checking if there is any data returned
   if (Object.keys(tasks).length === 0) {
     setTimeout(() => {
       setNotification('Something wrong with server, please try later...')
@@ -36,6 +42,8 @@ const App = () => {
     return (<Notification text={ notification }/>)
   }
 
+  // handling Undo button click by flipping destination and source panels,
+  // sending the request to state
   const handleClick = () => {
     const sourcePanel = action.destinationPanel
     const destinationPanel = action.sourcePanel
