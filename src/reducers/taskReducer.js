@@ -31,11 +31,22 @@ const taskReducer = (state = [], action) => {
 
 export const initializeTasks = () => {
   return async dispatch => {
-    const tasks = await getAll()
-    dispatch({
-      type: 'INIT_TASKS',
-      data: tasks
-    })
+    try {
+      const tasks = await getAll()
+      dispatch({
+        type: 'INIT_TASKS',
+        data: tasks
+      })
+    }
+    catch (error) {
+      if (error.response) {
+        console.log(error.response)
+      } else if (error.request) {
+        console.log(error.request)
+      } else {
+        console.log('Error', error.message)
+      }
+    }
   }
 }
 
