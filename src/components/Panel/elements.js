@@ -51,10 +51,10 @@ export const PanelTitleText = styled.h2`
 `
 
 export const PanelCards = styled.div`
-  margin-top: 8vh;
+  margin-top: 9vh;
   margin-bottom: 20px;
   overflow-y: scroll;
-  max-height: 58vh;
+  max-height: 55vh;
   border-radius: 3px;
   &:after {
     position: absolute;

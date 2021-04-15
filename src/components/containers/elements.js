@@ -14,14 +14,15 @@ export const AppContainer = styled.div`
 
 export const AppTitle = styled.h1`
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   margin-top: 40px;
-  font-size: 4vw;
+  margin-bottom: 0;
+  font-size: 3vw;
   @media (min-width: 320px) and (max-width: 600px) {
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     margin-top: 5px;
-    font-size: 8vw;
+    font-size: 7vw;
   }
   @media (min-width: 1280px) {
     font-size: 60px;
