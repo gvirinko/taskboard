@@ -21,7 +21,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "lint": "eslint .",
     "lint:css": "stylelint './src/**/*.js'",
     "cypress:open": "cypress open"
