@@ -3,6 +3,7 @@ import { initializeTasks, moveTask } from './reducers/taskReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
 import GlobalFonts from './fonts/fonts'
+import { Notification } from './components/Notification'
 import { Panel } from './components/Panel'
 import { panelNames, appTitle } from './content'
 import { AppContainer, AppTitle, ContentContainer, PanelContainer } from './components/containers/elements'
@@ -11,6 +12,7 @@ import { ButtonUndo } from './components/Buttons/elements'
 
 const App = () => {
   const [disabled, setDisabled] = useState(true)
+  const [notification, setNotification] = useState('Loading...')
   const [displayWidth, setDisplayWidth] = useState(window.innerWidth)
   const breakpointForMobileView = 600
   const action = useSelector(state => state.action.lastAction)
@@ -28,7 +30,10 @@ const App = () => {
 
   const tasks = useSelector(state => state.tasks)
   if (Object.keys(tasks).length === 0) {
-    return (<div> Loading...</div>)
+    setTimeout(() => {
+      setNotification('Something wrong with server, please try later...')
+    }, 5000)
+    return (<Notification text={ notification }/>)
   }
 
   const handleClick = () => {
