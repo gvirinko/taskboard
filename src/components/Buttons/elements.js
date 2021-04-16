@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+
 import {
-  button_undo, button_undo_font, button_undo_hover, button_undo_disabled,
-  button_move, button_move_hover
+  BUTTON_UNDO, BUTTON_UNDO_FONT, BUTTON_UNDO_HOVER, BUTTON_UNDO_DISABLED,
+  BUTTON_MOVE, BUTTON_MOVE_HOVER
 } from '../../colors'
 
 export const ButtonUndo = styled.button`
@@ -10,17 +11,17 @@ export const ButtonUndo = styled.button`
   align-self: flex-end;
   margin-bottom: 20px;
   border-radius: 5px;
-  background-color: ${button_undo};
-  color: ${button_undo_font};
+  background-color: ${BUTTON_UNDO};
+  color: ${BUTTON_UNDO_FONT};
   font-size: 1.2vw;
   font-weight: bold;
   &:hover {
-    background-color: ${button_undo_hover};
+    background-color: ${BUTTON_UNDO_HOVER};
     transition: 0.3s ease-in-out;
     cursor: pointer;
   }
   &:disabled {
-    background-color: ${button_undo_disabled};
+    background-color: ${BUTTON_UNDO_DISABLED};
     transition: none;
     cursor: not-allowed;
   }
@@ -45,10 +46,10 @@ export const ButtonMove = styled.button`
   margin-bottom: auto;
   margin-left: 5px;
   border-radius: 5px;
-  background-color: ${button_move};
+  background-color: ${BUTTON_MOVE};
   font-size: 1.2vw;
   &:hover {
-    background-color: ${button_move_hover};
+    background-color: ${BUTTON_MOVE_HOVER};
     transition: 0.3s ease-in-out;
     cursor: pointer;
   }

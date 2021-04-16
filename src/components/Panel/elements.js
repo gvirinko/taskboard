@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { panel } from '../../colors'
+import { PANEL } from '../../colors'
 
 export const PanelComponent = styled.div`
   position: relative;
@@ -7,7 +7,7 @@ export const PanelComponent = styled.div`
   margin-bottom: 20px;
   border-radius: 3px;
   box-shadow: 1px 2px 5px;
-  background-color: ${panel};
+  background-color: ${PANEL};
   @media (min-width: 320px) and (max-width: 600px) {
     border-radius: 0;
     border: 0.5px solid #ECEFF4;
@@ -31,7 +31,7 @@ export const PanelTitle = styled.div`
   width: 16vw;
   @media (min-width: 320px) and (max-width: 600px) {
     width: 100%;
-    margin-top: 5;
+    margin-top: 5px;
   }
 `
 

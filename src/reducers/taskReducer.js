@@ -1,6 +1,5 @@
 /* eslint-disable no-case-declarations */
 import getAll from '../services/tasks'
-import { panelNames } from '../content'
 
 const taskReducer = (state = [], action) => {
   switch (action.type) {
@@ -18,12 +17,10 @@ const taskReducer = (state = [], action) => {
     const sourceArray = state[action.data.from]
     const taskToMove = sourceArray.find(task => task.index === action.data.index)
     const filteredArray = sourceArray.filter(task => task.index !== action.data.index)
-    //? check the situation with multiple unchanged panels
-    const unchangedPanel = panelNames.filter(panel => panel !== sourcePanel && panel !== destinationPanel)
     return {
+      ...state,
       [sourcePanel]: filteredArray,
-      [destinationPanel]: [...state[destinationPanel], taskToMove],
-      [unchangedPanel]: state[unchangedPanel]
+      [destinationPanel]: [...state[destinationPanel], taskToMove]
     }
   default:
     return state

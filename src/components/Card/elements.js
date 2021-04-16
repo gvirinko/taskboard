@@ -1,21 +1,21 @@
 import styled from 'styled-components'
-import { card, card_border, card_hover } from '../../colors'
+import { CARD, CARD_BORDER, CARD_HOVER } from '../../colors'
 
 export const CardComponent = styled.div`
-  position: relative;
+  // position: relative;
   display: flex;
   justify-content: space-between;
   padding: 5px;
   margin-left: 10px;
   margin-right: 10px;
-  border: 0.5px solid ${card_border};
+  border: 0.5px solid ${CARD_BORDER};
   border-radius: 5px;
   box-shadow: 1px 2px 5px;
-  background-color: ${card};
+  background-color: ${CARD};
   font-size: 1.2vw;
   line-height: 1.2;
   &:hover {
-    background-color: ${card_hover};
+    background-color: ${CARD_HOVER};
   }
   @media (min-width: 320px) and (max-width: 600px) {
     font-size: 12px;
@@ -23,7 +23,7 @@ export const CardComponent = styled.div`
 `
 
 export const CardDescription = styled.div`
-  position: relative;
+  // position: relative;
   display: flex;
   flex-direction: column;
   width: 14vw;

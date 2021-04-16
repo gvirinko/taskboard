@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { Notification } from '../Notification'
 import { Panel } from '../Panel'
-import { panelNames } from '../../content'
+import { PANELNAMES } from '../../content'
 
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
@@ -40,7 +40,7 @@ export const PanelsMobile = () => {
     <div className="panel_container">
       <div className="swiper-container">
         <div className="swiper-wrapper">
-          {panelNames.map((name, index) =>
+          {PANELNAMES.map((name, index) =>
             <div className="swiper-slide" key={index}>
               <Panel name={name} data={tasks[name]} />
             </div>

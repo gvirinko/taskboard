@@ -1,15 +1,15 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
+
 import { moveTask } from '../../reducers/taskReducer'
 import { rememberAction } from '../../reducers/actionReducer'
-import { destinations } from '../../content'
-
+import { DESTINATIONS } from '../../content'
 import { CardComponent, CardDescription, CardErrorName, CardText } from './elements'
 import { ButtonMove } from '../Buttons/elements'
 
 export const Card = ({ code, text, index, sourcePanel }) => {
-  const destinationPanel = destinations[sourcePanel]
+  const destinationPanel = DESTINATIONS[sourcePanel]
   const dispatch = useDispatch()
 
   // handling 'Move to...' button click by sending data to both reducers:
@@ -27,7 +27,7 @@ export const Card = ({ code, text, index, sourcePanel }) => {
         <CardText>{text}</CardText>
       </CardDescription>
       <ButtonMove
-        onClick={() => handleClick()}>Move to {destinationPanel}
+        onClick={handleClick}>Move to {destinationPanel}
       </ButtonMove>
     </CardComponent>)
 }

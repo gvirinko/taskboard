@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { Card } from '../Card'
 import { PanelComponent, PanelTitle, PanelTitleText, PanelCards } from './elements'
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { background, font } from '../../colors'
+import { BACKGROUND, FONT } from '../../colors'
 
 export const AppContainer = styled.div`
   position: relative;
@@ -7,9 +7,9 @@ export const AppContainer = styled.div`
   flex-direction: column;
   align-content: center;
   margin: 0;
-  background-color: ${background};
+  background-color: ${BACKGROUND};
   font-family: Roboto, Georgia, serif;
-  color: ${font};
+  color: ${FONT};
 `
 
 export const AppTitle = styled.h1`
@@ -30,7 +30,7 @@ export const AppTitle = styled.h1`
 `
 
 export const ContentContainer = styled.main`
-  position: relative;
+  // position: relative;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
@@ -43,9 +43,9 @@ export const ContentContainer = styled.main`
 `
 
 export const PanelContainer = styled.div`
-  position: relative;
+  // position: relative;
   display: flex;
   overflow-x: scroll;
   justify-content: space-between;
-  background-color: ${background};
+  background-color: ${BACKGROUND};
 `

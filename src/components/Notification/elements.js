@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { background, font } from '../../colors'
+import { BACKGROUND, FONT } from '../../colors'
 
 export const NotificationComponent = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const NotificationComponent = styled.div`
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background-color: ${background};
-  color: ${font};
+  background-color: ${BACKGROUND};
+  color: ${FONT};
   font-size: 2vh;
 `

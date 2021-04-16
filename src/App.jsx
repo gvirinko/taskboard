@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { initializeTasks, moveTask } from './reducers/taskReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { initializeTasks, moveTask } from './reducers/taskReducer'
 import GlobalFonts from './fonts/fonts'
 import { Notification } from './components/Notification'
 import { Panel } from './components/Panel'
-import { panelNames, appTitle } from './content'
-import { AppContainer, AppTitle, ContentContainer, PanelContainer } from './components/containers/elements'
 import { PanelsMobile } from './components/PanelsMobile'
+import { PANELNAMES, APPTITLE } from './content'
+import { AppContainer, AppTitle, ContentContainer, PanelContainer } from './components/containers/elements'
 import { ButtonUndo } from './components/Buttons/elements'
 
 const App = () => {
@@ -16,11 +16,12 @@ const App = () => {
   const [displayWidth, setDisplayWidth] = useState(window.innerWidth)
   // breakpoint at which slider component for mobile view should be rendered
   const breakpointForMobileView = 600
-  const action = useSelector(state => state.action.lastAction)
+  const lastAction = useSelector(state => state.action.lastAction)
   const dispatch = useDispatch()
 
   // defining user display width to adjust render styles
   useEffect(() => {
+    // setDisplayWidth(window.innerWidth)
     window.addEventListener('resize', () => setDisplayWidth(window.innerWidth))
   }, [window.innerWidth])
   // saving data to state
@@ -29,8 +30,8 @@ const App = () => {
   }, [dispatch])
   // checking if there is an action saved to state, to define the status of Undo button
   useEffect(() => {
-    action ? setDisabled(false) : setDisabled(true)
-  }, [action])
+    lastAction ? setDisabled(false) : setDisabled(true)
+  }, [lastAction])
 
   // getting data on errors from state
   const tasks = useSelector(state => state.tasks)
@@ -45,26 +46,26 @@ const App = () => {
   // handling Undo button click by flipping destination and source panels,
   // sending the request to state
   const handleClick = () => {
-    const sourcePanel = action.destinationPanel
-    const destinationPanel = action.sourcePanel
-    dispatch(moveTask(action.index, sourcePanel, destinationPanel))
+    const sourcePanel = lastAction.destinationPanel
+    const destinationPanel = lastAction.sourcePanel
+    dispatch(moveTask(lastAction.index, sourcePanel, destinationPanel))
     setDisabled(true)
   }
 
   return (
     <AppContainer>
       <GlobalFonts />
-      <AppTitle>{appTitle}</AppTitle>
+      <AppTitle>{APPTITLE}</AppTitle>
       <ContentContainer>
         <ButtonUndo
-          onClick={() => handleClick()}
+          onClick={handleClick}
           disabled={disabled}
         >Undo last action
         </ButtonUndo>
         {displayWidth < breakpointForMobileView
           ? <PanelsMobile />
           : <PanelContainer>
-            {panelNames.map((name, index) =>
+            {PANELNAMES.map((name, index) =>
               <Panel name={name} data={tasks[name]} key={index} />)}
           </PanelContainer>
         }
