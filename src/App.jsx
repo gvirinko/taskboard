@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { initializeTasks, moveTask } from './reducers/taskReducer'
 import GlobalFonts from './fonts/fonts'
 import { Notification } from './components/Notification'
-import { Panel } from './components/Panel'
 import { PanelsMobile } from './components/PanelsMobile'
+import { PanelsDesktop } from './components/PanelsDesktop'
 import { PANELNAMES, APPTITLE } from './content'
 import { AppContainer, AppTitle, ContentContainer, PanelContainer } from './components/containers/elements'
 import { ButtonUndo } from './components/Buttons/elements'
@@ -62,13 +62,12 @@ const App = () => {
           disabled={disabled}
         >Undo last action
         </ButtonUndo>
-        {displayWidth < breakpointForMobileView
-          ? <PanelsMobile />
-          : <PanelContainer>
-            {PANELNAMES.map((name, index) =>
-              <Panel name={name} data={tasks[name]} key={index} />)}
-          </PanelContainer>
-        }
+        <PanelContainer>
+          {displayWidth < breakpointForMobileView
+            ? <PanelsMobile panelNames={PANELNAMES} tasks={tasks} />
+            : <PanelsDesktop panelNames={PANELNAMES} tasks={tasks} />
+          }
+        </PanelContainer>
       </ContentContainer>
     </AppContainer>
   )
