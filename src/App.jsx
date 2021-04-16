@@ -14,7 +14,7 @@ const App = () => {
   const [disabled, setDisabled] = useState(true)
   const [notification, setNotification] = useState('Loading...')
   const [displayWidth, setDisplayWidth] = useState(window.innerWidth)
-  // breakpoint at which slider component for mobile view should be rendered
+  // breakpoint at which swiper component for mobile view should be rendered
   const breakpointForMobileView = 600
   const lastAction = useSelector(state => state.action.lastAction)
   const dispatch = useDispatch()
@@ -23,11 +23,11 @@ const App = () => {
   useEffect(() => {
     // setDisplayWidth(window.innerWidth)
     window.addEventListener('resize', () => setDisplayWidth(window.innerWidth))
-  }, [window.innerWidth])
+  }, [])
   // saving data to state
   useEffect(() => {
     dispatch(initializeTasks())
-  }, [dispatch])
+  }, [])
   // checking if there is an action saved to state, to define the status of Undo button
   useEffect(() => {
     lastAction ? setDisabled(false) : setDisabled(true)

@@ -21,7 +21,8 @@ export const Panel = ({ name, data }) => {
           </Card>)
         }
       </PanelCards>
-    </PanelComponent>)
+    </PanelComponent>
+  )
 }
 
 Panel.propTypes = {

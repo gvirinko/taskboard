@@ -30,7 +30,6 @@ export const AppTitle = styled.h1`
 `
 
 export const ContentContainer = styled.main`
-  // position: relative;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
@@ -43,7 +42,6 @@ export const ContentContainer = styled.main`
 `
 
 export const PanelContainer = styled.div`
-  // position: relative;
   display: flex;
   overflow-x: scroll;
   justify-content: space-between;

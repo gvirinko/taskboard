@@ -6,20 +6,20 @@ const taskReducer = (state = [], action) => {
   // functionality to save an initial list of tasks from API
   case 'INIT_TASKS':
     return {
-      'backlog': action.data.backlog,
-      'unresolved': action.data.unresolved,
-      'resolved': action.data.resolved
+      backlog: action.payload.backlog,
+      unresolved: action.payload.unresolved,
+      resolved: action.payload.resolved
     }
   // functionality to move any task to any panel, given its index, source panel and destination panel
   case 'MOVE_TASK':
-    const sourcePanel = action.data.from
-    const destinationPanel = action.data.to
-    const sourceArray = state[action.data.from]
-    const taskToMove = sourceArray.find(task => task.index === action.data.index)
-    const filteredArray = sourceArray.filter(task => task.index !== action.data.index)
+    const sourcePanel = action.payload.from
+    const destinationPanel = action.payload.to
+    const sourceArray = state[action.payload.from]
+    const taskToMove = sourceArray.find(task => task.index === action.payload.index)
+    const sourceArrayWithoutTask = sourceArray.filter(task => task.index !== action.payload.index)
     return {
       ...state,
-      [sourcePanel]: filteredArray,
+      [sourcePanel]: sourceArrayWithoutTask,
       [destinationPanel]: [...state[destinationPanel], taskToMove]
     }
   default:
@@ -34,7 +34,7 @@ export const initializeTasks = () => {
       const tasks = await getAll()
       dispatch({
         type: 'INIT_TASKS',
-        data: tasks
+        payload: tasks
       })
     }
     catch (error) {
@@ -52,7 +52,7 @@ export const initializeTasks = () => {
 export const moveTask = (index, from, to) => {
   return {
     type: 'MOVE_TASK',
-    data: { index, from, to }
+    payload: { index, from, to }
   }
 }
 

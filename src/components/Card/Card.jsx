@@ -29,7 +29,8 @@ export const Card = ({ code, text, index, sourcePanel }) => {
       <ButtonMove
         onClick={handleClick}>Move to {destinationPanel}
       </ButtonMove>
-    </CardComponent>)
+    </CardComponent>
+  )
 }
 
 Card.propTypes = {

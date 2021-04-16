@@ -4,6 +4,7 @@ import { PANEL } from '../../colors'
 export const PanelComponent = styled.div`
   position: relative;
   align-content: center;
+  min-width: 30vw;
   margin-bottom: 20px;
   border-radius: 3px;
   box-shadow: 1px 2px 5px;
@@ -24,6 +25,7 @@ export const PanelComponent = styled.div`
 
 export const PanelTitle = styled.div`
   position: absolute;
+  text-align: center;
   left: 0;
   right: 0;
   margin-left: auto;

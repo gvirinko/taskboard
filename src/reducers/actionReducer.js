@@ -3,7 +3,7 @@ const actionReducer = (state = [], action) => {
   switch (action.type) {
   case 'LAST_ACTION':
     return {
-      'lastAction': action.data
+      'lastAction': action.payload
     }
   default:
     return state
@@ -14,7 +14,7 @@ const actionReducer = (state = [], action) => {
 export const rememberAction = (index, sourcePanel, destinationPanel) => {
   return {
     type: 'LAST_ACTION',
-    data: { index, sourcePanel, destinationPanel }
+    payload: { index, sourcePanel, destinationPanel }
   }
 }
 

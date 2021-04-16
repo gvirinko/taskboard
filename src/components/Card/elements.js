@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { CARD, CARD_BORDER, CARD_HOVER } from '../../colors'
 
 export const CardComponent = styled.div`
-  // position: relative;
   display: flex;
   justify-content: space-between;
   padding: 5px;
@@ -23,7 +22,6 @@ export const CardComponent = styled.div`
 `
 
 export const CardDescription = styled.div`
-  // position: relative;
   display: flex;
   flex-direction: column;
   width: 14vw;
